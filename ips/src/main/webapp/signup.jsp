@@ -4,7 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
 <title>from</title>
 
 
@@ -13,6 +18,13 @@
 <script type="text/javascript " src="js/jquery.validate.js"></script>
 <script type="text/javascript">
 	$(function() {
+		$.validator.addMethod("letteronly",
+		        function(value, element) {
+		                return /^[A-Za-z\d=#$%@_ -]+$/.test(value);
+		        },
+		"Sorry, no special characters allowed"
+		);
+		
 		$("#singupform").validate({
 			reules : {
 				firstname : {
@@ -87,13 +99,7 @@
 </script>
 <script type="text/javascript">
 $(function(){
-$.validator.addMethod("letteronly",
-        function(value, element) {
-                return /^[A-Za-z\d=#$%@_ -]+$/.test(value);
-        },
-"Sorry, no special characters allowed"
-);
-});
+
 </script>
 <style type="text/css">
 .btn {
